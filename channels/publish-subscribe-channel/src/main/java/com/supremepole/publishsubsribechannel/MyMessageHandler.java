@@ -1,4 +1,4 @@
-package com.supremepole.subscribablechannel;
+package com.supremepole.publishsubsribechannel;
 
 import org.springframework.integration.Message;
 import org.springframework.integration.MessagingException;

@@ -7,6 +7,6 @@
 		http://www.springframework.org/schema/integration
 		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd">
 
-    <int:publish-subscribe-channel id="subscribable-channel"/>
+    <int:publish-subscribe-channel id="publish-subscribe-channel"/>
 
 </beans>

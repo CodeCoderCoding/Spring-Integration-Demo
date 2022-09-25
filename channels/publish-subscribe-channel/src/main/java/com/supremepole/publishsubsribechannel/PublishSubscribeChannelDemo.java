@@ -1,4 +1,4 @@
-package com.supremepole.subscribablechannel;
+package com.supremepole.publishsubsribechannel;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,15 +7,15 @@ import org.springframework.integration.MessageChannel;
 import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.integration.support.MessageBuilder;
 
-public class SubscribableChannelDemo {
+public class PublishSubscribeChannelDemo {
 
     private ApplicationContext applicationContext=null;
 
     private MessageChannel messageChannel=null;
 
-    public SubscribableChannelDemo() {
-        applicationContext=new ClassPathXmlApplicationContext("subscribable-channel.xml");
-        messageChannel=applicationContext.getBean("subscribable-channel", MessageChannel.class);
+    public PublishSubscribeChannelDemo() {
+        applicationContext=new ClassPathXmlApplicationContext("publish-subscribe-channel.xml");
+        messageChannel=applicationContext.getBean("publish-subscribe-channel", MessageChannel.class);
     }
 
     public void subscribe(){
@@ -28,9 +28,9 @@ public class SubscribableChannelDemo {
     }
 
     public static void main(String[] args) {
-        SubscribableChannelDemo subscribableChannelDemo=new SubscribableChannelDemo();
-        subscribableChannelDemo.subscribe();
-        subscribableChannelDemo.publish();
+        PublishSubscribeChannelDemo publishSubscribeChannelDemo =new PublishSubscribeChannelDemo();
+        publishSubscribeChannelDemo.subscribe();
+        publishSubscribeChannelDemo.publish();
     }
 
 }

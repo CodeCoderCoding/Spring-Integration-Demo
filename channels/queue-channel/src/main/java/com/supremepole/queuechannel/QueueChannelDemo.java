@@ -1,4 +1,4 @@
-package com.supremepole.pollablechannel;
+package com.supremepole.queuechannel;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,15 +7,15 @@ import org.springframework.integration.MessageChannel;
 import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.support.MessageBuilder;
 
-public class PollableChannelDemo {
+public class QueueChannelDemo {
 
     private ApplicationContext applicationContext=null;
 
     private MessageChannel messageChannel=null;
 
-    public PollableChannelDemo() {
-        applicationContext=new ClassPathXmlApplicationContext("pollable-channel.xml");
-        messageChannel=applicationContext.getBean("pollable-channel", MessageChannel.class);
+    public QueueChannelDemo() {
+        applicationContext=new ClassPathXmlApplicationContext("queue-channel.xml");
+        messageChannel=applicationContext.getBean("queue-channel", MessageChannel.class);
     }
 
     public void sendMessage(){
@@ -29,9 +29,9 @@ public class PollableChannelDemo {
     }
 
     public static void main(String[] args) {
-        PollableChannelDemo pollableChannelDemo=new PollableChannelDemo();
-        pollableChannelDemo.sendMessage();
-        pollableChannelDemo.receiveMessage();
+        QueueChannelDemo queueChannelDemo =new QueueChannelDemo();
+        queueChannelDemo.sendMessage();
+        queueChannelDemo.receiveMessage();
     }
 
 }

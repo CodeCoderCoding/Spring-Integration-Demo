@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/integration
 		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd">
 
-    <int:channel id="pollable-channel">
+    <int:channel id="queue-channel">
         <int:queue capacity="10" />
     </int:channel>
 

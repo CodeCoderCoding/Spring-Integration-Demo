@@ -14,6 +14,8 @@ public class ServiceActivatorDemo {
 
     public ServiceActivatorDemo(){
         applicationContext=new ClassPathXmlApplicationContext("service-activator.xml");
+//        applicationContext=new ClassPathXmlApplicationContext("service-activator-string.xml");
+//        applicationContext=new ClassPathXmlApplicationContext("service-activator-message.xml");
         messageChannel=applicationContext.getBean("hello-world", MessageChannel.class);
     }
 

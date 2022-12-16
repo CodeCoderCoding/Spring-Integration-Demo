@@ -8,8 +8,7 @@ import org.springframework.integration.support.MessageBuilder;
 
 public class HelloWorld {
     public static void main(String args[]) {
-        String cfg="channel-context.xml";
-        ApplicationContext context=new ClassPathXmlApplicationContext(cfg);
+        ApplicationContext context=new ClassPathXmlApplicationContext("channel-context.xml");
         MessageChannel channel=context.getBean("world", MessageChannel.class);
         Message<String> message=MessageBuilder.withPayload("World").build();
         channel.send(message);

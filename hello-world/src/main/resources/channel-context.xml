@@ -9,10 +9,8 @@
 
     <channel id="world"/>
 
-    <service-activator input-channel="world" ref="helloService"
-                       method="sayHello"/>
+    <service-activator input-channel="world" ref="helloService" method="sayHello"/>
 
-    <beans:bean id="helloService"
-                class="com.supremepole.channel.MyHelloService"/>
+    <beans:bean id="helloService" class="com.supremepole.channel.MyHelloService"/>
 
 </beans:beans>

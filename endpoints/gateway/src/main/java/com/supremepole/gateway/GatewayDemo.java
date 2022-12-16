@@ -2,10 +2,9 @@ package com.supremepole.gateway;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.integration.core.MessageHandler;
 
 public class GatewayDemo {
-MessageHandler
+
     private ApplicationContext applicationContext=null;
 
     private HelloService helloService=null;

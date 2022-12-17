@@ -34,13 +34,13 @@
         <int:poller fixed-delay="1000" />
     </int:payload-deserializing-transformer>
 
-<!--    <int-xml:marshalling-transformer input-channel="trades-in-channel" output-channel="stdout"-->
-<!--                                     marshaller="marshaller" result-type="StringResult">-->
-<!--    </int-xml:marshalling-transformer>-->
-<!--    <int-xml:unmarshalling-transformer input-channel="trades-out-channel" output-channel="stdout"-->
-<!--                                       unmarshaller="marshaller">-->
-<!--        <int:poller fixed-delay="1000" />-->
-<!--    </int-xml:unmarshalling-transformer>-->
+    <int-xml:marshalling-transformer input-channel="trades-in-channel" output-channel="stdout"
+                                     marshaller="marshaller" result-type="StringResult">
+    </int-xml:marshalling-transformer>
+    <int-xml:unmarshalling-transformer input-channel="trades-out-channel" output-channel="stdout"
+                                       unmarshaller="marshaller">
+        <int:poller fixed-delay="1000" />
+    </int-xml:unmarshalling-transformer>
 
     <oxm:xmlbeans-marshaller id="marshaller"/>
 </beans>

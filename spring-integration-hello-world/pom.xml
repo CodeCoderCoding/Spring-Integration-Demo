@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.supremepole</groupId>
-    <artifactId>hello-world</artifactId>
+    <artifactId>spring-integration-hello-world</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

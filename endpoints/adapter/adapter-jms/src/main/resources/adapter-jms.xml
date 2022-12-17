@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:jms="http://www.springframework.org/schema/integration/jms"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+        http://www.springframework.org/schema/integration/jms
+        http://www.springframework.org/schema/integration/jms/spring-integration-jms-2.1.xsd">
+
+    <int:channel id="inbound-channel">
+        <int:queue capacity="10" />
+    </int:channel>
+
+    <int:channel id="outbound-channel">
+        <int:queue capacity="10" />
+    </int:channel>
+
+    <int:service-activator input-channel="inbound-channel" ref="helloService" method="sayHello"/>
+
+    <int:poller fixed-rate="1000" default="true"/>
+
+    <bean id="helloService" class="com.supremepole.adapterjms.MyHelloService"/>
+
+    <!-- Polling Consumer -->
+    <jms:inbound-channel-adapter channel="inbound-channel" connection-factory="connectionFactory"
+                                 destination="jmsQueue">
+        <int:poller fixed-rate="1000" />
+    </jms:inbound-channel-adapter>
+
+    <!-- Outbound Adapter -->
+    <jms:outbound-channel-adapter channel="outbound-channel" connection-factory="connectionFactory"
+                                  destination="jmsQueue">
+        <int:poller fixed-rate="1000"/>
+    </jms:outbound-channel-adapter>
+
+    <bean id="jmsQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="JMS_QUEUE" />
+    </bean>
+    <bean name="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL">
+            <value>tcp://localhost:61616</value>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:beans="http://www.springframework.org/schema/p"
+       xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+		http://www.springframework.org/schema/integration/stream
+		http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.1.xsd">
+
+    <int:channel id="hello-world"/>
+
+    <int:channel id="output"/>
+
+    <int-stream:stdout-channel-adapter id="stdout" />
+
+    <int:service-activator input-channel="hello-world" output-channel="stdout"
+                           ref="helloWorld" method="handleMessage"/>
+
+    <bean id="helloWorld" class="com.supremepole.serviceactivator.HelloWorld"/>
+
+</beans>

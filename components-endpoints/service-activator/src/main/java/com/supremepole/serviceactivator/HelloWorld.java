@@ -16,4 +16,9 @@ public class HelloWorld {
         System.out.println(message.getPayload().toString());
     }
 
+    public Message<String> handleMessage(Message<String> message){
+        System.out.println(message);
+        return message;
+    }
+
 }

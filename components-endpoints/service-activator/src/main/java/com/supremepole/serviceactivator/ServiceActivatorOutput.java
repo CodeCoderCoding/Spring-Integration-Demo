@@ -6,14 +6,14 @@ import org.springframework.integration.Message;
 import org.springframework.integration.MessageChannel;
 import org.springframework.integration.support.MessageBuilder;
 
-public class ServiceActivatorDemo {
+public class ServiceActivatorOutput {
 
     private ApplicationContext applicationContext=null;
 
     private MessageChannel messageChannel=null;
 
-    public ServiceActivatorDemo(){
-        applicationContext=new ClassPathXmlApplicationContext("service-activator.xml");
+    public ServiceActivatorOutput(){
+        applicationContext=new ClassPathXmlApplicationContext("service-activator-output.xml");
         messageChannel=applicationContext.getBean("hello-world", MessageChannel.class);
     }
 
@@ -23,8 +23,8 @@ public class ServiceActivatorDemo {
     }
 
     public static void main(String[] args) {
-        ServiceActivatorDemo serviceActivatorDemo=new ServiceActivatorDemo();
-        serviceActivatorDemo.publish();
+        ServiceActivatorOutput serviceActivatorOutput=new ServiceActivatorOutput();
+        serviceActivatorOutput.publish();
     }
 
 }

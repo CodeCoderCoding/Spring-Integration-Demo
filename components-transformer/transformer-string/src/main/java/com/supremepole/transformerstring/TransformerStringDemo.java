@@ -18,8 +18,8 @@ public class TransformerStringDemo {
 
     private void publish() {
         Person person=new Person();
-        Message<Person> tradeMsg = MessageBuilder.withPayload(person).build();
-        inChannel.send(tradeMsg, 10000);
+        Message<Person> message = MessageBuilder.withPayload(person).build();
+        inChannel.send(message, 10000);
         System.out.println("Message published.");
     }
 

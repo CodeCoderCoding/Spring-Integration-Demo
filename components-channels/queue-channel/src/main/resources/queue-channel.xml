@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd">
 
     <int:channel id="queue-channel">
-        <int:queue capacity="10" />
+        <int:queue capacity="3" />
     </int:channel>
 
 </beans>

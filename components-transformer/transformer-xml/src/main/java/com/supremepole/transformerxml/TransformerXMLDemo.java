@@ -30,8 +30,8 @@ public class TransformerXMLDemo {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document document = db.parse(path+"XMLFile.xml");
-        Message<?> tradeMsg = MessageBuilder.withPayload(document).build();
-        inChannel.send(tradeMsg, 10000);
+        Message<?> message = MessageBuilder.withPayload(document).build();
+        inChannel.send(message, 10000);
         System.out.println("Message published.");
     }
 

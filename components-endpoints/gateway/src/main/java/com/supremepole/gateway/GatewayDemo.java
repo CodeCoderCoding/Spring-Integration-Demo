@@ -16,7 +16,7 @@ public class GatewayDemo {
 
     public void publish(){
         String hello=helloService.sayHello("Hello World");
-        System.out.println(hello);
+        //System.out.println(hello);
     }
 
     public static void main(String[] args) {

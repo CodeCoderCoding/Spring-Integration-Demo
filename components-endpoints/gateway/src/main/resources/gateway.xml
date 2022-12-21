@@ -13,8 +13,10 @@
 
     <int:channel id="hello-world"/>
 
-    <int:service-activator input-channel="hello-world" ref="helloService" method="sayHello"/>
+    <int:service-activator input-channel="hello-world"
+                           ref="helloService" method="handleMessage"/>
 
-    <bean id="helloService" class="com.supremepole.gateway.MyHelloService"/>
+    <bean id="helloService"
+          class="com.supremepole.gateway.MyHelloService"/>
 
 </beans>

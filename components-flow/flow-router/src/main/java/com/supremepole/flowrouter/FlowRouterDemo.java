@@ -18,9 +18,9 @@ public class FlowRouterDemo {
 
     private void publish() {
         Person person=new Person();
-        Message<Person> tradeMsg = MessageBuilder.withPayload(person)
+        Message<Person> message = MessageBuilder.withPayload(person)
                 .setHeader("status", "NEW").build();
-        inChannel.send(tradeMsg, 10000);
+        inChannel.send(message, 10000);
         System.out.println("Message published.");
     }
 
